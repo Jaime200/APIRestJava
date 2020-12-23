@@ -1,0 +1,1 @@
+heroku deploy:jar target/ApiRestDemo-1.0.war --app fathomless-shore-08710
