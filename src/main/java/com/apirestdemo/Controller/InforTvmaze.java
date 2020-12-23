@@ -22,7 +22,8 @@ import javax.ws.rs.core.Response;
  */
 public class InforTvmaze {
      public List<Tvmaze> getInfoTvmaze(String termino){
-     if(termino.length() >0){
+         try {
+              if(termino.length() >0){
       Client client = ClientBuilder.newClient();
         WebTarget target = client.target("http://api.tvmaze.com/search/shows").queryParam("q", termino);
         Response response = target.request(MediaType.TEXT_PLAIN).get();
@@ -38,6 +39,11 @@ public class InforTvmaze {
          
          return arrTvmaze;
      }
+         } catch (Exception e) {
+             return null;
+         }
+         
+    
      
      return null;
        
